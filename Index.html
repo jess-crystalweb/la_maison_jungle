@@ -17,8 +17,13 @@
     function MyComponent(){
       return <div>Mon composant apparait bien</div>
     }
+    function Header(){
+      return <div>
+               <h1>La maison jungle</h1>
+              </div>
+    }
       ReactDOM.render(
-        <MyComponent />,document.getElementById('root')
+        <div><Header /><MyComponent /></div>, document.getElementById("root")
       )
     </script>
     </body>
