@@ -9,22 +9,48 @@
 
     <body>
 
-    <div id="root">tout debute ici 😊</div>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel">
-    function MyComponent(){
-      return <div>Mon composant apparait bien</div>
-    }
-    function Header(){
-      return <div>
-               <h1>La maison jungle</h1>
-              </div>
-    }
-      ReactDOM.render(
-        <div><Header /><MyComponent /></div>, document.getElementById("root")
-      )
-    </script>
+      <div id="root">tout debute ici 😊</div>
+      <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+      <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+      <script type="text/babel">
+      function MyComponent(){
+        return (<div>Mon composant apparait bien</div>)
+      }
+      function Header(){
+        const title = "La maison jungle"
+        return (<h1>{title}</h1>)
+      }
+      function Description() {
+          const text = "Ici achetez toutes les plantes dont vous avez toujours rêvées"
+          const emojis = "🤑🤑🤑"
+          return (<p>{ text.slice(0, 11) + emojis }</p>)
+      }
+      function Cart() {
+        const monsteraPrice = 8
+        const lierrePrice = 10
+        const bouquet_de_fleurPrice = 15
+        return (<div>
+          <h2>Panier</h2>
+          <ul>
+          <li>Monstera : {monsteraPrice}€</li>
+          <li>Lierre : {lierrePrice}€</li>
+          <li>Bouquet de fleur : {bouquet_de_fleurPrice}€</li>
+          </ul>
+          Total : {monsteraPrice + lierrePrice + bouquet_de_fleurPrice}€
+          </div>)
+      }
+      function Banner() {
+      return (<div>
+          <Header />
+          <Description />
+          <Cart />
+        </div>)
+      }
+
+        ReactDOM.render(
+          <Banner />, document.getElementById("root")
+        )
+      </script>
     </body>
 </html>
